@@ -46,14 +46,17 @@ namespace MehdiWebApp.Web
             }
             else
             {
-                // TODO: Add Exception Page
-                //app.UseExceptionHandler("/Home/Error");
+                // TODO: Format Exception Page
+                app.UseExceptionHandler("/Error");
 
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                // TODO: Configure Hsts & HttpsRedirection
+                // TODO: Configure Hsts
                 app.UseHsts();
             }
+
+            // TODO: Configure HttpsRedirection
             //app.UseHttpsRedirection();
+            app.UseStatusCodePagesWithReExecute("/Error", "?code={0}");
             app.UseStaticFiles();
 
             // TODO: Enable sessions

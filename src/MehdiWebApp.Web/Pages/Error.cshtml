@@ -1,0 +1,14 @@
+﻿@page
+@model MehdiWebApp.Web.Pages.ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+<h1 class="text-danger">بروز خطا</h1>
+<h2 class="text-danger">@Model.ExceptionMessage</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID: @Model.RequestId</strong>
+    </p>
+}
