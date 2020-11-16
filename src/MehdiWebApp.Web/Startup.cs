@@ -30,11 +30,10 @@ namespace MehdiWebApp.Web
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            // TODO: Uncomment the following lines to globally require all users to be authenticated
-            //services.AddAuthorization(options =>
-            //{
-            //    options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            //});
+            services.AddAuthorization(options =>
+            {
+                options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            });
 
             services.Configure<IdentityOptions>(options =>
             {
