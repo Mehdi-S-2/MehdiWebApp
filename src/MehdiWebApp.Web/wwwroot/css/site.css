@@ -1,1 +1,34 @@
-﻿
+﻿@font-face {
+    font-family: IRANSans;
+    src: url(../fonts/iransans.ttf) format("truetype");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: IRANYekan;
+    src: url(../fonts/yekan_small.eot);
+    src: url(../fonts/yekan_small.eot?#iefix) format("embedded-opentype"),url(../fonts/yekan_small.woff2) format("woff2"),url(../fonts/yekan_small.woff) format("woff"),url(../fonts/yekan_small.ttf) format("truetype");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: IRANYekan;
+    src: url(../fonts/yekan_medium.eot);
+    src: url(../fonts/yekan_medium.eot?#iefix) format("embedded-opentype"),url(../fonts/yekan_medium.woff2) format("woff2"),url(../fonts/yekan_medium.woff) format("woff"),url(../fonts/yekan_medium.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: IRANYekan;
+    src: url(../fonts/yekan_large.eot);
+    src: url(../fonts/yekan_large.eot?#iefix) format("embedded-opentype"),url(../fonts/yekan_large.woff2) format("woff2"),url(../fonts/yekan_large.woff) format("woff"),url(../fonts/yekan_large.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal
+}
+
+body {
+    font-family: IRANSans, Tahoma;
+}
