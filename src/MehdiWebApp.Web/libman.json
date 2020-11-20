@@ -18,6 +18,10 @@
         "js/bootstrap.js",
         "js/bootstrap.js.map"
       ]
+    },
+    {
+      "library": "font-awesome@5.15.1",
+      "destination": "wwwroot/lib/font-awesome/"
     }
   ]
 }
