@@ -32,15 +32,16 @@ namespace MehdiWebApp.Web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Display(Name = "نام کاربری")]
+            [Required(ErrorMessage = "(لطفا نام کاربری را وارد کنید)")]
             public string Email { get; set; }
 
-            [Required]
+            [Display(Name = "کلمه عبور")]
+            [Required(ErrorMessage = "(لطفا کلمه عبور را وارد کنید)")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "نام کاربری و کلمه عبور را به خاطر بسپار")]
             public bool RememberMe { get; set; }
         }
 
