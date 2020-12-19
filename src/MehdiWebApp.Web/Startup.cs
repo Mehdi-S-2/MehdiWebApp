@@ -26,7 +26,7 @@ namespace MehdiWebApp.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddUserStore<CustomUserStore<ApplicationUser, IdentityRole, AppIdentityDbContext, string>>().AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 

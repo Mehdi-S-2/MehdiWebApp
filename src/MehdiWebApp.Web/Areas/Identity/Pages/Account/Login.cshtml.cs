@@ -34,7 +34,7 @@ namespace MehdiWebApp.Web.Areas.Identity.Pages.Account
         {
             [Display(Name = "نام کاربری")]
             [Required(ErrorMessage = "(لطفا نام کاربری را وارد کنید)")]
-            public string Email { get; set; }
+            public string UserName { get; set; }
 
             [Display(Name = "کلمه عبور")]
             [Required(ErrorMessage = "(لطفا کلمه عبور را وارد کنید)")]
@@ -66,20 +66,20 @@ namespace MehdiWebApp.Web.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation(Input.UserName + " logged in.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning(Input.UserName + " account locked out.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "نام کاربری یا کلمه عبور نامعتبر است");
                     return Page();
                 }
             }

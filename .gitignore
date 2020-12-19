@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /src/MehdiWebApp.Web/wwwroot/lib
+/src/MehdiWebApp.Web/wwwroot/images/TempImages

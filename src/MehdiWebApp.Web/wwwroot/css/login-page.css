@@ -1,0 +1,23 @@
+﻿html, body {
+    margin: 0 !important;
+    height: 100%;
+}
+
+.login-side-image {
+    background-image: url("../images/TempImages/p (106).jpg");
+    height: 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-div {
+    background: url("../images/TempImages/bg_grid_02.png") repeat;
+    text-shadow: 1px 1px 1px rgb(80, 80, 80);
+    overflow: auto;
+    height: 100%;
+}
+
+.login-div a{
+    text-decoration:none;
+}
