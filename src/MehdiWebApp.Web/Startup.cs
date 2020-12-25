@@ -6,6 +6,7 @@ using MehdiWebApp.Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,7 @@ namespace MehdiWebApp.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkCustomStores<AppIdentityDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -51,17 +53,11 @@ namespace MehdiWebApp.Web
 
             app.UseRouting();
 
-            // TODO: Configure Identity
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                // TODO: Delete this MapGet
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
