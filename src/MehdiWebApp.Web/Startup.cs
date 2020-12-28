@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MehdiWebApp.Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -12,8 +15,15 @@ namespace MehdiWebApp.Web
 {
     public class Startup
     {
+        public Startup(IConfiguration config)
+        {
+            Configuration = config;
+        }
+
+        public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -35,6 +45,9 @@ namespace MehdiWebApp.Web
             }
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            // TODO: Enable sessions
+            //app.UseSession();
 
             app.UseRouting();
 
