@@ -1,0 +1,132 @@
+﻿html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#main-frame {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 50px 0 0 0;
+}
+
+#main-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    z-index: 50;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #dedede;
+}
+
+#main-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: padding .4s ease-out;
+}
+
+@media (min-width: 768px) {
+    #main-container {
+        padding-left: 200px;
+    }
+}
+
+#main-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #dedede;
+    transition: margin 0.4s ease-out, visibility 0.4s;
+    z-index: 1000;
+    background-color: #f4f4f4;
+}
+
+#main-frame, #main-header, #main-container, #main-content, #sidebar {
+    box-sizing: border-box;
+}
+
+#sidebar-toggle-box {
+    float: left;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#main-header .logo{
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    text-decoration:none;
+}
+
+#main-container.sidebar-closed {
+    padding-left: 0;
+}
+
+#main-container.sidebar-closed #sidebar {
+    margin-left: -200px;
+    visibility: hidden;
+    transition: margin 0.4s ease-out, visibility 0.4s;
+}
+
+/*---------------Right To Left Layout---------------*/
+[dir="rtl"] #main-frame {
+    direction: rtl;
+    text-align: right;
+}
+
+@media (min-width: 768px) {
+    [dir="rtl"] #main-container {
+        padding-right: 200px;
+        padding-left: 0;
+    }
+}
+
+[dir="rtl"] #sidebar {
+    right: 0;
+    left: auto;
+    border-right: none;
+    border-left: 1px solid #dedede;
+}
+
+[dir="rtl"] #sidebar-toggle-box {
+    float: right;
+}
+
+[dir="rtl"] #main-header .logo {
+    float: right;
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+[dir="rtl"] #main-container.sidebar-closed {    
+    padding-right: 0;
+}
+
+[dir="rtl"] #main-container.sidebar-closed #sidebar {
+    margin-left: 0;
+    margin-right: -200px;
+}
+/*---------------End of Right To Left---------------*/
