@@ -1,0 +1,35 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "ورود به سامانه";
+}
+
+@section PageStyles
+{
+    <link rel="stylesheet" href="~/css/login-page.css" asp-append-version="true" />
+}
+
+<img src="~/images/logos/MOE-Logo.png" class="w-25 mx-auto d-block" />
+<h1 class="text-center">ورود به سامانه</h1>
+<form id="account" method="post" autocomplete="off">
+    <div class="form-group">
+        <span class="fas fa-user"></span>
+        <label asp-for="Input.UserName"></label> <span asp-validation-for="Input.UserName" class="text-danger"></span>
+        <input asp-for="Input.UserName" class="form-control form-control-lg" dir="ltr" placeholder="UserName" />
+    </div>
+    <div class="form-group">
+        <span class="fas fa-key"></span>
+        <label asp-for="Input.Password"></label> <span asp-validation-for="Input.Password" class="text-danger"></span>
+        <input asp-for="Input.Password" class="form-control form-control-lg" dir="ltr" placeholder="Password" />
+    </div>
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger validation-summary-unstyled text-center"><span class="fas fa-3x fa-exclamation-triangle mb-2"></span></div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary w-100">ورود به سامانه</button>
+    </div>
+</form>
+<hr />
+<div>
+    <a class="float-md-right float-sm-none d-block" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"><span class="fas fa-user-plus"></span> ثبت نام در سامانه</a>
+    <a class="float-md-left float-sm-none d-block" id="forgot-password" asp-page="./ForgotPassword"><span class="fas fa-unlock"></span> کلمه عبور را فراموش کرده ام</a>
+</div>
